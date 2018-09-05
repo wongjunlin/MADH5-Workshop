@@ -1,0 +1,25 @@
+<h1>My Shopping Cart</h1>
+
+<app-inventory (newLineItem)="processLineItem($event)" ></app-inventory>
+
+<div *ngIf="cart.length <= 0 ">
+    Your cart is empty.
+</div>
+
+<div *ngIf="cart.length > 0 ">
+    Your cart has {{ cart.length }} item(s).
+</div>
+
+<div>
+    <table>
+        <tr *ngFor="let a of cart">
+            <td>
+                {{ a.label }}
+            </td>
+
+            <td>
+                {{ a.quantity }}
+            </td>
+        </tr>
+    </table>
+</div>
