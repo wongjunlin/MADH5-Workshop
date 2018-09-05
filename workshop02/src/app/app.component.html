@@ -1,0 +1,35 @@
+<mat-toolbar color="primary" 
+    fxLayoutGap="15px">
+    <img src="assets/addressbook.png" class="logo">
+    <h3>Address Book</h3>
+</mat-toolbar>
+
+<body>
+
+    <app-add-friend (newAddressItem)="processAddressItem($event)"></app-add-friend>
+
+    <br>
+
+    <mat-tab-group (selectedTabChange)="loadAddress($event)">
+    
+        <mat-tab *ngFor='let t of tabs' [label]='t.label'>
+        
+            Some content here
+
+            <mat-list-item *ngFor='let a of addresses'>
+                
+                <h4>
+                    {{ a.name }}
+                </h4>
+
+                <p>
+
+                </p>
+
+            </mat-list-item>
+        
+        </mat-tab>
+        
+    </mat-tab-group>
+
+</body>
