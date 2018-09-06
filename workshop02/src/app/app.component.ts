@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   }
 
   private addressSvc: AddressService;
-  addresses: Address[] = [];
+  currentAddresses: Address[] = [];
   
   private tabs = [
     { label: 'A-E', pattern: /^[a-e].*/i },
@@ -32,18 +32,20 @@ export class AppComponent implements OnInit {
   }
 
   processAddressItem(address : Address) {
-    console.log(">>> ", address);
 
     this.addressSvc.addNewAddress(address)
     .then(result => {
+
       console.log("Saved: ", result);
 
       this.getAddresses(0);
 
     })
     .catch(err => {
+
       console.log('err: ', err);
-    } );
+    
+    });
   }
 
   loadAddress(event: MatTabChangeEvent) {
@@ -56,13 +58,10 @@ export class AppComponent implements OnInit {
 
     this.addressSvc.getAddresses(this.tabs[index].pattern)
       .then(addr => {
-        this.addresses.length = 0;
-
+        
         console.log('address loading on tab switching: ', addr);
         
-        for (let a of addr) {
-          this.addresses.push(a);
-        }
+        this.currentAddresses = addr;
       })
       .catch(err => {
         

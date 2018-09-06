@@ -14,19 +14,7 @@
     
         <mat-tab *ngFor='let t of tabs' [label]='t.label'>
         
-            Some content here
-
-            <mat-list-item *ngFor='let a of addresses'>
-                
-                <h4>
-                    {{ a.name }}
-                </h4>
-
-                <p>
-
-                </p>
-
-            </mat-list-item>
+            <app-address-book [addresses]="currentAddresses" ></app-address-book>
         
         </mat-tab>
         
