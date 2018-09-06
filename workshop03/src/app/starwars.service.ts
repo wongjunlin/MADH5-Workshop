@@ -13,7 +13,7 @@ export class StarWarsService {
     searchPeople(id : number) : Promise<People> {
         
         // console.log("Cat: ", cat);
-        console.log("Id: ", id);
+        console.log("Id in swService: ", id);
 
         return (
             this.http.get<People>(apiUrl + id)

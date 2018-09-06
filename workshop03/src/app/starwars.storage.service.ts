@@ -39,9 +39,15 @@ export class StarWarsStorageService {
     }
 
     save(data : People) : Promise<number> {
+        // console.log("swStorageService: ", data);
+
         if (data) 
+        {
+            console.log("swStorageService: saved");
+            
             return (
                 this.db['people'].put(data)
             );
+        }
     }
 }

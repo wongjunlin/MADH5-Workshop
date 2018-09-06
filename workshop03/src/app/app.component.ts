@@ -18,27 +18,22 @@ export class AppComponent {
 
   search(form: NgForm) {
 
-    console.log("people id: ", form.value.peopleId);
+    console.log("people id in search: ", form.value.peopleId);
 
     this.swdbService.find(form.value.peopleId)
       .then(
+        // resolve
         (result) => {
-          console.log("from cache: ", result)
-          // return null;
+          console.log("from cache in search: ", result)
+          return null;
         },
-        // (id) => {
-        //   console.log("not in database: ", id)
-        // }
 
+        // reject
         this.swService.searchPeople.bind(this.swService)
-        
-        // (err) => {
-        //   console.log("people id not found: ", err)
-        // }
 
       )
-      .then(this.swdbService.save.bind(this.swdbService))
-      .catch(err => {
+      .then(this.swdbService.save.bind(this.swdbService)) // resolve
+      .catch(err => { // reject
         console.error('err: ', err)
       })
 
