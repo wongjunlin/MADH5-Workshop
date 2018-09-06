@@ -4,6 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material.module";
+import { HttpClientModule } from '@angular/common/http';
+
+import { StarWarsService } from './starwars.service';
+import { StarWarsStorageService } from './starwars.storage.service';
 
 @NgModule({
   declarations: [
@@ -13,9 +17,10 @@ import { MaterialModule } from "./material.module";
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [StarWarsService, StarWarsStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

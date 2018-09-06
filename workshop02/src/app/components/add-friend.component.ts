@@ -17,8 +17,6 @@ export class AddFriendComponent implements OnInit {
   ngOnInit() {
   }
 
-  address 
-
   @Output()
   newAddressItem = new EventEmitter<Address>();
 
