@@ -6,7 +6,7 @@
   "display": "fullscreen",
   "orientation": "portrait",
   "Scope": "/",
-  "start_url": "/MADH5-Workshop",
+  "start_url": "/MADH5-Workshop/workshop04",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
